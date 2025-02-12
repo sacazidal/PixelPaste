@@ -1,7 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   weight: ["400", "500", "700"],
@@ -61,10 +60,7 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            <main className="w-full max-w-screen-2xl mx-auto flex-grow px-4 md:px-2">
-              {children}
-            </main>
-            <Footer />
+            {children}
           </ThemeProvider>
         </div>
       </body>
