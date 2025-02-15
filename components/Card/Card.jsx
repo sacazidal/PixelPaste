@@ -54,16 +54,12 @@ const Card = ({ projectId }) => {
           fill
           sizes="full"
           className="w-full h-full object-cover"
+          unoptimized
         />
       </div>
       <div className="p-4">
-        <Title title={project.title || "PixelPaste"} />
-        <Description
-          desc={
-            project.description ||
-            "Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные тексты. Они ее напоивший алфавит то."
-          }
-        />
+        <Title title={project.title} />
+        <Description desc={project.description} />
       </div>
     </Link>
   );

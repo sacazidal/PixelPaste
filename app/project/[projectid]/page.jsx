@@ -43,7 +43,7 @@ const Project = async ({ params }) => {
               />
             </div>
             <div className="p-4">
-              <Title title={project.title || "PixelPaste"} />
+              <Title title={project.title} />
               <Description desc={project.description} />
             </div>
           </div>

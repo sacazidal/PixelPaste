@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { UserProvider } from "@/context/UserContext";
 
 const poppins = Poppins({
   weight: ["400", "500", "700"],
@@ -60,7 +61,7 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <UserProvider>{children}</UserProvider>
           </ThemeProvider>
         </div>
       </body>
