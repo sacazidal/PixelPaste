@@ -1,7 +1,21 @@
 import { updateSession } from "@/utils/supabase/middleware";
+import { NextResponse } from "next/server";
+import { checkUserRole } from "./utils/serverCheckUserRole";
 
 export async function middleware(request) {
-  return await updateSession(request);
+  const response = await updateSession(request);
+
+  if (request.nextUrl.pathname.startsWith("/admin/secret")) {
+    const { user, error } = await checkUserRole("admin");
+
+    if (error || !user) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/";
+      return NextResponse.redirect(url);
+    }
+  }
+
+  return response;
 }
 
 export const config = {
