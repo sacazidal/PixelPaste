@@ -15,7 +15,8 @@ const UserContext = createContext();
 export const UserProvider = ({ children, initialUser }) => {
   const [user, setUser] = useState(initialUser || null);
   const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(!initialUser);
+  const [role, setRole] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const supabase = createClient();
 
@@ -65,22 +66,30 @@ export const UserProvider = ({ children, initialUser }) => {
   }, [updateUser, supabase]);
 
   useEffect(() => {
-    if (!initialUser) {
-      const getCurrentUser = async () => {
-        const {
-          data: { user },
-        } = await supabase.auth.getUser();
+    const getSession = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
-        if (user) {
-          updateUser(user);
-        } else {
-          setLoading(false);
+      if (user) {
+        setUser(user);
+
+        const { data: userData, error } = await supabase
+          .from("users")
+          .select("role")
+          .eq("id", user.id)
+          .single();
+
+        if (!error && userData) {
+          setRole(userData.role);
         }
-      };
+      }
 
-      getCurrentUser();
-    }
-  }, [supabase, updateUser, initialUser]);
+      setLoading(false);
+    };
+
+    getSession();
+  }, [supabase]);
 
   const logout = async () => {
     await supabase.auth.signOut();
@@ -90,7 +99,7 @@ export const UserProvider = ({ children, initialUser }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, profile, loading, logout }}>
+    <UserContext.Provider value={{ user, role, profile, loading, logout }}>
       {children}
     </UserContext.Provider>
   );
