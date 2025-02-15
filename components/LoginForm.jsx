@@ -9,7 +9,7 @@ import Link from "next/link";
 import { validateLoginForm } from "@/utils/validate";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
-import LoaderComponent from "./LoaderComponent";
+import LoaderComponent from "./loaderComponent";
 
 const LoginForm = ({ className, ...props }) => {
   const [email, setEmail] = useState("");

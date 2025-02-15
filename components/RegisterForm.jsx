@@ -10,7 +10,7 @@ import { validateRegisterForm } from "@/utils/validate";
 import { createClient } from "@/utils/supabase/client";
 import { EmailConfirmationDialog } from "./AlertDialog";
 import { useRouter } from "next/navigation";
-import LoaderComponent from "./LoaderComponent";
+import LoaderComponent from "./loaderComponent";
 
 const RegisterForm = ({ className, ...props }) => {
   const [email, setEmail] = useState("");
