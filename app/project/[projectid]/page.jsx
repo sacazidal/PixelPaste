@@ -34,7 +34,7 @@ const Project = async ({ params }) => {
     <>
       <Header />
       <main className="flex-grow flex flex-col items-center justify-center">
-        <div className="container flex mx-auto p-4 gap-x-5">
+        <div className="container mx-auto p-4 flex flex-col lg:flex-row gap-4">
           <div className="rounded-xl w-full overflow-hidden shadow-lg bg-white dark:bg-neutral-300 p-5 space-y-6">
             <div className="flex flex-col">
               <Title
@@ -80,7 +80,7 @@ const Project = async ({ params }) => {
               </Link>
             </div>
           </div>
-          <div className="rounded-xl w-full max-w-[412px] overflow-hidden shadow-lg bg-white dark:bg-neutral-800">
+          <div className="rounded-xl w-full max-w-[412px] overflow-hidden shadow-lg bg-white dark:bg-neutral-800 hidden lg:block">
             <div className="relative w-full h-[562px] overflow-hidden">
               <Image
                 src={project.image_url || "/1.jpg"}
