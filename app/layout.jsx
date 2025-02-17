@@ -19,13 +19,13 @@ export const metadata = {
     title: "PixelPaste — Готовые макеты Figma, CSS и JavaScript сниппеты",
     description:
       "PixelPaste — это платформа для дизайнеров и разработчиков, где можно найти готовые макеты Figma, полезные CSS-сниппеты и JavaScript-скрипты.",
-    url: "https://www.pixelpaste.com",
+    url: "https://pixelpaste.vercel.app/",
     siteName: "PixelPaste",
     images: [
       {
-        url: "https://www.pixelpaste.com/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "https://i.postimg.cc/c1z3H5nz/Pixel-Launcher.webp",
+        width: 60,
+        height: 60,
         alt: "PixelPaste — Платформа для дизайнеров и разработчиков",
       },
     ],
@@ -37,10 +37,10 @@ export const metadata = {
     title: "PixelPaste — Готовые макеты Figma, CSS и JavaScript сниппеты",
     description:
       "PixelPaste — это платформа для дизайнеров и разработчиков, где можно найти готовые макеты Figma, полезные CSS-сниппеты и JavaScript-скрипты.",
-    images: ["https://www.pixelpaste.com/twitter-image.png"],
+    images: ["https://i.postimg.cc/c1z3H5nz/Pixel-Launcher.webp"],
   },
   alternates: {
-    canonical: "https://www.pixelpaste.com",
+    canonical: "https://pixelpaste.vercel.app/",
   },
   robots: {
     index: true,

@@ -26,7 +26,7 @@ const ActionHeader = () => {
         <>
           {role === "admin" && (
             <Link href={"/admin/secret"}>
-              <Button className="dark:bg-neutral-900 bg-neutral-300 hover:bg-red-600 flex items-center gap-x-2">
+              <Button className="dark:bg-neutral-900 bg-neutral-300 hover:bg-red-600 hover:dark:bg-red-600 flex items-center gap-x-2">
                 <Image
                   src={"/Admin.webp"}
                   alt={"admin"}
