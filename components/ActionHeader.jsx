@@ -15,7 +15,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ChevronDown } from "lucide-react";
-import { ToggleTheme } from "./ToggleTheme";
+import ToggleTheme from "./ToggleTheme";
 
 const ActionHeader = () => {
   const { user, loading, role } = useUser();
