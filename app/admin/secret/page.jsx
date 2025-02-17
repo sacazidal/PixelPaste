@@ -23,6 +23,7 @@ import { checkUserRole } from "@/utils/checkUserRole";
 import { createClient } from "@/utils/supabase/client";
 import { Label } from "@radix-ui/react-label";
 import { Upload } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const Admin = () => {
@@ -35,6 +36,7 @@ const Admin = () => {
   const [adaptive, setAdaptive] = useState(false);
   const [language, setLanguage] = useState("");
   const [isFree, setIsFree] = useState(false);
+  const [link, setLink] = useState("");
   const [price, setPrice] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -47,7 +49,14 @@ const Admin = () => {
       return;
     }
 
-    if (!title || !description || !websiteForm || !complexity || !language) {
+    if (
+      !title ||
+      !description ||
+      !websiteForm ||
+      !complexity ||
+      !language ||
+      !link
+    ) {
       setError("Все поля обязательны для заполнения");
       return;
     }
@@ -97,6 +106,7 @@ const Admin = () => {
             free: isFree,
             price: isFree ? "0" : price,
             user_id: user.id,
+            figma_link: link,
           },
         ])
         .select();
@@ -116,6 +126,7 @@ const Admin = () => {
         setLanguage("");
         setIsFree(null);
         setPrice("");
+        setLink("");
       }
     } catch (error) {
       console.error(error);
@@ -178,6 +189,15 @@ const Admin = () => {
               </label>
             </div>
             <div>
+              <Label>Ссылка</Label>
+              <Input
+                type="text"
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
+                required
+              />
+            </div>
+            <div>
               <Label>Форма сайта</Label>
               <Select value={websiteForm} onValueChange={setWebsiteForm}>
                 <SelectTrigger>
@@ -219,8 +239,8 @@ const Admin = () => {
                   <SelectValue placeholder="Выберите язык" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="ru">Русский</SelectItem>
-                  <SelectItem value="en">Английский</SelectItem>
+                  <SelectItem value="RU">Русский</SelectItem>
+                  <SelectItem value="EN">Английский</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -242,13 +262,24 @@ const Admin = () => {
             {error && (
               <p className="text-red-500 text-sm text-center">{error}</p>
             )}
-            <Button type="submit" disabled={loading}>
-              {loading ? (
-                <LoaderComponent title={"Создаем макет..."} />
-              ) : (
-                "Создать"
-              )}
-            </Button>
+            <div className="flex justify-between">
+              <Button type="submit" disabled={loading}>
+                {loading ? (
+                  <LoaderComponent title={"Создаем макет..."} />
+                ) : (
+                  "Создать"
+                )}
+              </Button>
+              <Link href="/" className="">
+                <Button type="button" disabled={loading}>
+                  {loading ? (
+                    <LoaderComponent title={"Ливаем..."} />
+                  ) : (
+                    "На главную"
+                  )}
+                </Button>
+              </Link>
+            </div>
           </form>
         </CardContent>
       </Card>

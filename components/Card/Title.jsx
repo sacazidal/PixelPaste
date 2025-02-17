@@ -1,8 +1,6 @@
-const Title = ({ title }) => {
+const Title = ({ title, className }) => {
   return (
-    <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">
-      {title}
-    </h3>
+    <h3 className={`font-semibold dark:text-white ${className}`}>{title}</h3>
   );
 };
 export default Title;

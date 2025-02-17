@@ -58,8 +58,11 @@ const Card = ({ projectId }) => {
         />
       </div>
       <div className="p-4">
-        <Title title={project.title} />
-        <Description desc={project.description} />
+        <Title title={project.title} className={"text-lg text-neutral-900"} />
+        <Description
+          desc={project.description}
+          className={"text-sm text-neutral-600 dark:text-neutral-400"}
+        />
       </div>
     </Link>
   );

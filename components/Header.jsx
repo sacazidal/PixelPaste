@@ -14,6 +14,7 @@ const Header = () => {
                 alt="P"
                 width={20}
                 height={20}
+                className="filter invert dark:invert-0"
                 priority
               />
             </div>
