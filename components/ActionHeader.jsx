@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import LogoutButton from "./LogoutButton";
 import { useUser } from "@/context/UserContext";
-import Loader from "./Loader";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -19,7 +18,7 @@ import ToggleTheme from "./toggle-theme";
 
 const ActionHeader = () => {
   const { user, loading, role } = useUser();
-  if (loading) return <Loader />;
+  if (loading) return <></>;
   return (
     <div className="flex items-center gap-x-2">
       <ToggleTheme />

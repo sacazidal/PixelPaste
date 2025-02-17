@@ -37,7 +37,7 @@ const Card = ({ projectId }) => {
     fetchProject();
   }, [projectId, supabase]);
 
-  if (loading) return <Loader />;
+  if (loading) return <></>;
   if (error) return <div>Error: {error}</div>;
   if (!project) return <div>No project found</div>;
 
