@@ -153,8 +153,9 @@ const Admin = () => {
             className="space-y-4"
           >
             <div>
-              <Label>Название</Label>
+              <Label htmlFor="title">Название</Label>
               <Input
+                id="title"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -162,8 +163,9 @@ const Admin = () => {
               />
             </div>
             <div>
-              <Label>Описание</Label>
+              <Label htmlFor="desc">Описание</Label>
               <Textarea
+                id="desc"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -189,8 +191,9 @@ const Admin = () => {
               </label>
             </div>
             <div>
-              <Label>Ссылка</Label>
+              <Label htmlFor="link">Ссылка</Label>
               <Input
+                id="link"
                 type="text"
                 value={link}
                 onChange={(e) => setLink(e.target.value)}

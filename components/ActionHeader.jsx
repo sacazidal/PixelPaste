@@ -15,6 +15,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ChevronDown } from "lucide-react";
 import ToggleTheme from "./toggle-theme";
+import AdminButton from "./AdminButton";
 
 const ActionHeader = () => {
   const { user, loading, role } = useUser();
@@ -24,21 +25,7 @@ const ActionHeader = () => {
       <ToggleTheme />
       {user ? (
         <>
-          {role === "admin" && (
-            <Link href={"/admin/secret"}>
-              <Button className="dark:bg-neutral-900 bg-neutral-300 hover:bg-red-600 hover:dark:bg-red-600 flex items-center gap-x-2">
-                <Image
-                  src={"/Admin.webp"}
-                  alt={"admin"}
-                  width={20}
-                  height={20}
-                />
-                <span className="dark:text-white text-neutral-800 font-bold text-sm">
-                  Admin
-                </span>
-              </Button>
-            </Link>
-          )}
+          {role === "admin" && <AdminButton />}
           <LogoutButton />
         </>
       ) : (

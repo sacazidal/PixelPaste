@@ -69,6 +69,7 @@ const LoginForm = ({ className, ...props }) => {
           <Input
             id="email"
             type="email"
+            name="email"
             placeholder="m@example.com"
             className="dark:border-neutral-700"
             value={email}
@@ -87,6 +88,7 @@ const LoginForm = ({ className, ...props }) => {
           </div>
           <Input
             id="password"
+            name="password"
             type="password"
             className="dark:border-neutral-700"
             value={password}

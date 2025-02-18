@@ -48,7 +48,7 @@ const Card = ({ projectId }) => {
     >
       <div className="relative w-full h-64 overflow-hidden">
         <Image
-          src={project.image_url || "/1.jpg"}
+          src={project.image_url}
           alt="Макет Figma"
           loading="lazy"
           fill
@@ -58,7 +58,10 @@ const Card = ({ projectId }) => {
         />
       </div>
       <div className="p-4">
-        <Title title={project.title} className={"text-lg text-neutral-900"} />
+        <Title
+          title={project.title}
+          className={"text-lg dark:text-white text-neutral-900"}
+        />
         <Description
           desc={project.description}
           className={"text-sm text-neutral-600 dark:text-neutral-400"}

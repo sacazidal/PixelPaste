@@ -101,6 +101,7 @@ const RegisterForm = ({ className, ...props }) => {
           <div className="grid gap-2">
             <Label htmlFor="email">Почта</Label>
             <Input
+              name="email"
               id="email"
               type="email"
               placeholder="m@example.com"
@@ -112,6 +113,7 @@ const RegisterForm = ({ className, ...props }) => {
           <div className="grid gap-2">
             <Label htmlFor="username">Логин</Label>
             <Input
+              name="username"
               id="username"
               type="text"
               placeholder="darkness"
@@ -123,6 +125,7 @@ const RegisterForm = ({ className, ...props }) => {
           <div className="grid gap-2">
             <Label htmlFor="password">Пароль</Label>
             <Input
+              name="password"
               id="password"
               type="password"
               className="dark:border-neutral-700"
@@ -133,6 +136,7 @@ const RegisterForm = ({ className, ...props }) => {
           <div className="grid gap-2">
             <Label htmlFor="password2">Подтверждение пароля</Label>
             <Input
+              name="password"
               id="password2"
               type="password"
               className="dark:border-neutral-700"
