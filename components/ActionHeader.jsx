@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "./ui/button";
 import LogoutButton from "./LogoutButton";
 import { useUser } from "@/context/UserContext";
-import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,

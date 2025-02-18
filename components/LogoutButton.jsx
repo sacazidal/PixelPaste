@@ -5,16 +5,23 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { ChevronDown, LogOut } from "lucide-react";
+import { ChevronDown, LogOut, UserPen } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { useRouter } from "next/navigation";
 
 export default function LogoutButton() {
   const { logout, profile } = useUser();
+  const { push } = useRouter();
 
   const handleLogout = async () => {
     await logout();
+  };
+
+  const handleProfile = () => {
+    push(`/profile/${profile.username}`);
   };
 
   return (
@@ -31,6 +38,14 @@ export default function LogoutButton() {
           {profile && <ChevronDown size={13} />}
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-36 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 rounded-lg shadow-lg">
+          <DropdownMenuItem
+            onClick={handleProfile}
+            className="px-4 py-1 hover:bg-gray-100 dark:hover:border-neutral-800 flex justify-center"
+          >
+            <UserPen />
+            <span>Профиль</span>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator className="border-t border-gray-200 dark:border-neutral-800" />
           <DropdownMenuItem
             onClick={handleLogout}
             className="px-4 py-1 hover:bg-gray-100 dark:hover:border-neutral-800 flex justify-center"
