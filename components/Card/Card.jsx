@@ -6,7 +6,6 @@ import Link from "next/link";
 import Title from "./Title";
 import Description from "./Description";
 import { useEffect, useState } from "react";
-import Loader from "../Loader";
 
 const Card = ({ projectId }) => {
   const supabase = createClient();
@@ -51,9 +50,10 @@ const Card = ({ projectId }) => {
           src={project.image_url}
           alt="Макет Figma"
           loading="lazy"
-          fill
+          fill={true}
           sizes="full"
           className="w-full h-full object-cover"
+          quality={100}
           unoptimized
         />
       </div>

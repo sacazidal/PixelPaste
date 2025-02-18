@@ -35,7 +35,7 @@ const Project = async ({ params }) => {
       <Header />
       <main className="flex-grow flex flex-col items-center justify-center">
         <div className="max-w-screen-2xl w-full mx-auto p-4 flex flex-col lg:flex-row gap-4">
-          <div className="rounded-xl w-full overflow-hidden shadow-lg bg-white dark:bg-neutral-300 p-5 space-y-4 md:space-y-6">
+          <div className="rounded-xl w-full overflow-hidden shadow-2xl shadow-neutral-600 bg-white dark:bg-neutral-300 p-5 space-y-4 md:space-y-6">
             <div className="flex flex-col">
               <Title
                 title={project.title}
