@@ -12,14 +12,24 @@ const CardItems = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const cachedLayouts = localStorage.getItem("layouts");
+    if (cachedLayouts) {
+      setLayouts(JSON.parse(cachedLayouts));
+      setLoading(false);
+      return;
+    }
+
     const fetchLayouts = async () => {
       try {
         const { data: layoutsData, error: fetchError } = await supabase
           .from("layouts")
-          .select("*");
+          .select("*")
+          .order("created_at", { ascending: false })
+          .limit(100);
 
         if (fetchError) throw fetchError;
         setLayouts(layoutsData);
+        localStorage.setItem("layouts", JSON.stringify(layoutsData));
       } catch (error) {
         console.error(error);
         setError("Произошла ошибка при загрузке карточек");
@@ -27,6 +37,7 @@ const CardItems = () => {
         setLoading(false);
       }
     };
+
     fetchLayouts();
   }, [supabase]);
 
